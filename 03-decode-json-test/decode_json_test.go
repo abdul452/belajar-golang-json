@@ -15,10 +15,13 @@ type Customer struct {
 }
 
 func TestDecodeJSON(t *testing.T) {
+	// Membuat mentahan string JSON.
 	jsonString := `{"FirstName":"Eko","MiddleName":"Kurniawan","LastName":"Khannedy","Age":30,"Married":true}`
+	// Melakukan konversi string tersebut menjadi []byte
 	jsonBytes := []byte(jsonString)
 
-	customer := &Customer{}
+	// Menyiapkan variabel penampung berupa pointer struct
+	customer := &Customer{} // 🎯 Ini adalah pointer ke struct Customer
 
 	err := json.Unmarshal(jsonBytes, customer)
 	if err != nil {
