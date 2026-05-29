@@ -18,6 +18,8 @@ func TestStreamDecoder(t *testing.T) {
 	if err != nil {
 		panic(err)
 	}
+	// 🟢 WAJIB ditaruh di sini untuk close file setelah dibaca
+	defer reader.Close()
 	decoder := json.NewDecoder(reader)
 
 	customer := &Customer{}
@@ -30,6 +32,8 @@ func TestStreamDecoderMap(t *testing.T) {
 	if err != nil {
 		panic(err)
 	}
+	// 🟢 WAJIB ditaruh di sini untuk close file setelah dibaca
+	defer reader.Close()
 	decoder := json.NewDecoder(reader)
 
 	var customer = map[string]any{}
